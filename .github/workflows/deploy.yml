@@ -1,4 +1,4 @@
-name: Deploy fastapi to remote server
+name: Deploy FastAPI using Docker
 
 on:
   push:
@@ -7,32 +7,36 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Set up SSH key
-        run: |
-          mkdir -p ~/.ssh
-          printf "%s\n" "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+    - name: Set up SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H "${{ secrets.REMOTE_HOST }}" >> ~/.ssh/known_hosts
 
-          echo "🔍 Verifying id_rsa exists and is non-empty"
-          ls -l ~/.ssh/id_rsa
-          head -n 5 ~/.ssh/id_rsa
+    - name: Deploy FastAPI with Docker
+      run: |
+        ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << 'EOF'
+          # Clone or pull latest repo
+          cd ~/fastapi-app || git clone https://github.com/RahulYadav08/fastapi_ecommerce.git ~/fastapi-app
+          cd ~/fastapi-app
+          git pull origin main
 
-          echo "🔍 Remote host: '${{ secrets.REMOTE_HOST }}'"
-          echo "🔑 Running ssh-keyscan"
-          ssh-keyscan -H "192.168.1.143" >> ~/.ssh/known_hosts
+          cd ecommerce_fastapi
 
-      - name: Deploy code to server
-        run: |
-          ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "
-          cd /home/${{ secrets.REMOTE_USER }}/fastapi-app &&
-          git pull origin main &&
-          source venv/bin/activate &&
-          pip install -r requirements.txt &&
-          sudo systemctl restart fastapi
-          " 
+          # Stop and remove old container if it exists
+          docker stop fastapi-container || true
+          docker rm fastapi-container || true
+
+          # Build new image
+          docker build -t fastapi-app .
+
+          # Run container with env file and port mapping
+          docker run -d --name fastapi-container --env-file .env -p 8000:8000 fastapi-app
+        EOF
