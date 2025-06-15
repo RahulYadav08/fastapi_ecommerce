@@ -23,8 +23,9 @@ jobs:
           ls -l ~/.ssh/id_rsa
           head -n 5 ~/.ssh/id_rsa
 
+          echo "🔍 Remote host: '${{ secrets.REMOTE_HOST }}'"
           echo "🔑 Running ssh-keyscan"
-          ssh-keyscan -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
+          ssh-keyscan -H "${{ secrets.REMOTE_HOST }}" >> ~/.ssh/known_hosts
 
       - name: Deploy code to server
         run: |
