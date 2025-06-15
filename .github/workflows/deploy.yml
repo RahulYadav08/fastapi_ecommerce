@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
@@ -25,7 +25,7 @@ jobs:
 
           echo "🔍 Remote host: '${{ secrets.REMOTE_HOST }}'"
           echo "🔑 Running ssh-keyscan"
-          ssh-keyscan -H "${{ secrets.REMOTE_HOST }}" >> ~/.ssh/known_hosts
+          ssh-keyscan -H "192.168.1.143" >> ~/.ssh/known_hosts
 
       - name: Deploy code to server
         run: |
