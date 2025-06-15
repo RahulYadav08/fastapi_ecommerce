@@ -1,0 +1,76 @@
+2025-06-15 19:56:12,761 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/rahul/FASTApi_project/project1/venv1/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-06-15 19:57:59,904 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/rahul/FASTApi_project/project1/venv1/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-06-15 19:58:03,400 - ERROR - Database connection failed: (psycopg2.OperationalError) connection to server at "192.168.1.143", port 5432 failed: No route to host
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-15 21:12:05,349 - ERROR - Database connection failed: (psycopg2.OperationalError) connection to server at "192.168.1.143", port 5432 failed: No route to host
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-15 21:14:30,414 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/rahul/FASTApi_project/project1/venv1/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-06-15 21:14:40,829 - ERROR - Database connection failed: (psycopg2.OperationalError) connection to server at "192.168.1.143", port 5432 failed: FATAL:  database "fastecomm" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-15 21:17:31,282 - ERROR - Database connection failed: (psycopg2.OperationalError) connection to server at "192.168.1.143", port 5432 failed: FATAL:  database "fastecomm" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-15 21:42:58,769 - ERROR - Database connection failed: (psycopg2.OperationalError) connection to server at "192.168.1.143", port 5432 failed: FATAL:  database "fastecomm" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-15 21:43:09,616 - ERROR - Database connection failed: (psycopg2.OperationalError) connection to server at "192.168.1.143", port 5432 failed: FATAL:  database "fastecomm" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-16 00:07:23,656 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/rahul/FASTApi_project/project1/venv1/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-06-16 00:07:29,330 - ERROR - Database connection failed: (psycopg2.OperationalError) connection to server at "192.168.1.143", port 5432 failed: FATAL:  password authentication failed for user "postgres"
+connection to server at "192.168.1.143", port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-16 00:11:00,625 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/rahul/FASTApi_project/project1/venv1/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-06-16 00:11:01,048 - ERROR - Database connection failed: (psycopg2.OperationalError) connection to server at "192.168.1.143", port 5432 failed: FATAL:  password authentication failed for user "postgres"
+connection to server at "192.168.1.143", port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-16 00:11:09,984 - ERROR - Database connection failed: (psycopg2.OperationalError) connection to server at "192.168.1.143", port 5432 failed: FATAL:  password authentication failed for user "postgres"
+connection to server at "192.168.1.143", port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-16 00:11:43,140 - ERROR - Database connection failed: (psycopg2.OperationalError) connection to server at "192.168.1.143", port 5432 failed: FATAL:  password authentication failed for user "postgres"
+connection to server at "192.168.1.143", port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-16 00:12:22,791 - ERROR - Database connection failed: (psycopg2.OperationalError) connection to server at "192.168.1.143", port 5432 failed: FATAL:  password authentication failed for user "postgres"
+connection to server at "192.168.1.143", port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-16 00:13:25,616 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/rahul/FASTApi_project/project1/venv1/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
