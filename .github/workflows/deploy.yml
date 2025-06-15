@@ -18,6 +18,12 @@ jobs:
           mkdir -p ~/.ssh
           printf "%s\n" "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+
+          echo "🔍 Verifying id_rsa exists and is non-empty"
+          ls -l ~/.ssh/id_rsa
+          head -n 5 ~/.ssh/id_rsa
+
+          echo "🔑 Running ssh-keyscan"
           ssh-keyscan -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy code to server
