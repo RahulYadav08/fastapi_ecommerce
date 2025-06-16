@@ -8,8 +8,8 @@ from app.crud.product import create_product, get_product_by_id, get_all_products
 
 from app.db import get_db
 
-router = APIRouter(prefix="/products", tags=["Products"])
-
+#router = APIRouter(prefix="/products", tags=["Products"])
+router = APIRouter()
 
 @router.post("/", response_model=ProductOut)
 def add_product(product: ProductCreate, db: Session= Depends(get_db)):
@@ -22,8 +22,8 @@ def get_product(id:int, db: Session = Depends(get_db)):
 
 
 @router.get("/", response_model=List[ProductOut])
-def get_products(db: Session = Depends(get_db)):
-    return get_all_products(db)
+def get_products(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+    return get_all_products(db, skip=skip, limit=limit)
 
 @router.put("/{id}", response_model=ProductOut)
 def product_update(product: ProductUpdate, id:int, db: Session = Depends(get_db)):
