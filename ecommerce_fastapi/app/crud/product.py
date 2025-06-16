@@ -1,4 +1,6 @@
 from sqlalchemy.orm import Session
+from sqlalchemy import func
+
 from app.models.product import Product
 from app.schemas.product import ProductCreate, ProductOut, ProductUpdate
 
@@ -7,7 +9,9 @@ from typing import List
 
 
 def create_product(db: Session, product: ProductCreate):
-
+    existing = db.query(Product).filter(func.lower(Product.name) == product.name.lower())
+    if existing:
+        raise HTTPException(status_code=400, detail="Product already exist")
     product_obj = Product(
         name=product.name, 
         description=product.description, 

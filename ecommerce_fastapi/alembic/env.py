@@ -16,6 +16,7 @@ load_dotenv()
 #Import your database Base and models to register metadata
 from app.database import Base
 from app.models.user import User
+from app.models.product import Product
 
 #Alembic Config object
 config = context.config

@@ -22,7 +22,7 @@ class ProductUpdate(BaseModel):
 class ProductOut(ProductBase):
     id: int
     created_at: datetime
-    updated_at: datetime
+    updated_at: Optional[datetime]
 
     class Config:
         orm_mode = True
@@ -30,8 +30,8 @@ class ProductOut(ProductBase):
     def summary(self) -> str:
         return f"{self.name} ({self.category}) - ₹{self.price:.2f} | Stock: {self.stock}"
     
-    
-    @computed_field
+
+    @computed_field(return_type=bool)
     @property
     def in_stock(self):
         return self.stock > 0
